@@ -1,5 +1,6 @@
 // --- aniversario ---
-const startDate = new Date('2025-12-18');
+const startDate = new Date('2025-12-19');
+//na verdade 18
 
 // --- POEMAS ---
 // O PRIMEeiro é o que vai sempre aparecer primeiro
