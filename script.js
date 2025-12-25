@@ -126,7 +126,8 @@ Dentro da eternidade e a cada instante.
 function updateCounter() {
     const now = new Date();
     const diffTime = now - startDate;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+ 
     
     // Garante que não mostre número negativo
     const daysToShow = diffDays > 0 ? diffDays : 0;
