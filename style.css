@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Patrick Hand', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #ffd9f5); /* tons suaves de rosa */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    background: #fffaf5; /* branco suave com leve creme */
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #b33e6a; /* rosa escuro, romântico */
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+.fun-counter {
+    font-size: 1.4em;
+    color: #b33e6a;
+    margin-bottom: 25px;
+}
+
+.poem {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    min-height: 120px;
+    position: relative;
+    border-left: 4px solid #f5a1c2; /* detalhe delicado */
+}
+
+.poem-text {
+    color: #4a2b3a;
+    line-height: 1.6;
+    font-size: 1.1em;
+    font-family: 'Courier Prime', monospace;
+    white-space: pre-line;
+}
+
+.poem-author {
+    color: #b33e6a;
+    font-size: 0.95em;
+    margin-top: 15px;
+    text-align: right;
+    font-style: italic;
+    font-family: 'Courier Prime', monospace;
+}
+
+button {
+    background: #f5a1c2;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-family: 'Patrick Hand', cursive;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(179, 62, 106,0.3);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #b33e6a;
+    transform: translateY(-2px);
+}
+
+.date {
+    color: #b33e6a;
+    font-size: 1em;
+    margin-top: 20px;
+    font-family: 'Courier Prime', monospace;
+}
