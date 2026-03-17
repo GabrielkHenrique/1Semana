@@ -1,28 +1,1212 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Você </title>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para a Fernanda 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --sky-top:#7ab8d4;
+  --sky-mid:#3a6e98;
+  --sky-deep:#152848;
+  --night:#04060d;
+  --gold:#e8c46a;
+  --gold2:#c9a03a;
+  --rose:#e8637a;
+  --star:#fffde8;
+  --text:#f0e8d5;
+  --text-dark:#1a2e3a;
+  --muted:#8ab8cc;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --body:'EB Garamond',Georgia,serif;
+  --sans:'Lato',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{
+  color:var(--text);
+  font-family:var(--body);
+  min-height:100vh;
+  overflow-x:hidden;
+  background:#04060d;
+}
+
+/* ── GRADIENTE DE FUNDO PRINCIPAL ── */
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+#sky::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(
+    180deg,
+    #7ab8d4 0%,
+    #5a9cbe 8%,
+    #3a7aaa 18%,
+    #2a5a8a 30%,
+    #1a3a6a 45%,
+    #0e2248 60%,
+    #07122a 78%,
+    #04060d 100%
+  );
+  z-index:0;
+}
+/* nebulosa sutil */
+#sky::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(ellipse 60% 30% at 75% 12%,rgba(255,220,120,.06) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 25% at 20% 55%,rgba(80,140,200,.08) 0%,transparent 70%),
+    radial-gradient(ellipse 70% 20% at 50% 85%,rgba(20,40,90,.4) 0%,transparent 80%);
+}
+.sd{position:absolute;border-radius:50%;background:var(--star);animation:tw var(--d,3s) ease-in-out infinite var(--dl,0s);z-index:2}
+@keyframes tw{0%,100%{opacity:var(--mn,.15);transform:scale(1)}50%{opacity:var(--mx,.85);transform:scale(1.4)}}
+
+/* ── LAYOUT ── */
+main{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:0 20px 100px}
+
+/* ── SEÇÃO HERO ── */
+.hero{
+  width:100%;max-width:520px;
+  display:flex;flex-direction:column;align-items:center;
+  padding-top:40px;gap:0;
+  padding-bottom:24px;
+  margin-bottom:80px;
+}
+
+/* ── IMAGEM DO PRÍNCIPE ── */
+.prince-wrap{
+  width:260px;
+  height:260px;
+  flex-shrink:0;
+  margin-top:48px;
+  animation:float 8s ease-in-out infinite;
+  filter:drop-shadow(0 0 30px rgba(74,122,204,.25));
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* ── CONTADOR ── */
+.counter-wrap{text-align:center;margin-top:20px;margin-bottom:40px;animation:fadeUp 1.2s .3s ease both}
+.counter-num{
+  font-family:var(--serif);font-size:clamp(5rem,18vw,8rem);font-weight:300;
+  color:#fff;line-height:1;letter-spacing:-.02em;
+  text-shadow:0 2px 40px rgba(122,184,212,.5), 0 0 80px rgba(122,184,212,.2);
+}
+.counter-label{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:rgba(255,255,255,.75);letter-spacing:.16em;margin-top:6px}
+.counter-sub{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:.13em;margin-top:10px;min-height:1.2em}
+.since{font-family:var(--sans);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:8px}
+
+/* ── SEPARADOR ── */
+.sep{
+  display:flex;align-items:center;gap:14px;
+  color:var(--gold);opacity:.4;font-size:.65rem;letter-spacing:.5em;
+  margin:44px 0 0;
+}
+.sep::before,.sep::after{content:'';display:block;width:55px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+/* ── SEÇÕES ── */
+.section{width:100%;}
+.section-title{
+  font-family:var(--serif);font-size:1.6rem;font-weight:300;
+  color:var(--gold);letter-spacing:.08em;margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(232,196,106,.3),transparent)}
+
+/* ── POEMA ── */
+.poem-card{
+  position:relative;
+  background:rgba(10,30,60,.45);
+  border:1px solid rgba(122,184,212,.15);
+  border-radius:2px 18px 2px 18px;
+  padding:40px 36px 30px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 60px rgba(0,0,0,.4),inset 0 1px 0 rgba(122,184,212,.1);
+  transition:border-color .4s,box-shadow .4s;
+  min-height:140px;
+}
+.poem-card:hover{border-color:rgba(122,184,212,.3);box-shadow:0 24px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(122,184,212,.2)}
+.poem-card::before{
+  content:'\201C';position:absolute;top:-22px;left:18px;
+  font-family:var(--serif);font-size:8rem;color:var(--gold);opacity:.12;line-height:1;pointer-events:none;
+}
+.poem-text{font-family:var(--body);font-size:1.18rem;font-weight:400;line-height:1.9;color:var(--text);white-space:pre-line;transition:opacity .35s}
+.poem-author{margin-top:22px;text-align:right;font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--gold);opacity:.75;transition:opacity .35s}
+.poem-author::before{content:'— '}
+
+/* ── BOTÃO ── */
+.btn-wrap{margin-top:28px}
+.next-btn{
+  display:flex;align-items:center;gap:10px;
+  background:transparent;color:var(--gold);
+  border:1px solid rgba(232,196,106,.28);
+  padding:13px 34px;border-radius:50px;
+  font-family:var(--serif);font-style:italic;font-size:1rem;letter-spacing:.08em;
+  cursor:pointer;transition:all .28s;
+}
+.next-btn:hover{background:rgba(232,196,106,.1);border-color:rgba(232,196,106,.65);box-shadow:0 0 30px rgba(232,196,106,.12);transform:translateY(-2px)}
+.next-btn:active{transform:none}
+.spin{display:inline-block;transition:transform .5s}
+.next-btn:hover .spin{transform:rotate(180deg)}
+
+/* ── HISTÓRIA ── */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:20px;padding:0 0 36px;position:relative;}
+.tl-item:not(:last-child)::before{
+  content:'';position:absolute;left:10px;top:22px;bottom:0;
+  width:1px;background:linear-gradient(180deg,rgba(122,184,212,.3),rgba(122,184,212,.05));
+}
+.tl-dot{
+  width:22px;height:22px;border-radius:50%;border:1px solid var(--muted);
+  background:rgba(122,184,212,.12);flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--muted);
+}
+.tl-body { 
+  flex: 1; 
+  min-width: 0; 
+  word-wrap: break-word; 
+}
+.tl-date{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.tl-text{font-family:var(--body);font-size:1.05rem;line-height:1.75;color:var(--text)}
+.tl-text em{font-style:italic;color:#b8dce8;opacity:.9}
+
+/* ── CARTA ── */
+.carta-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.carta-nav-title{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--muted)}
+.carta-dots{display:flex;gap:7px}
+.cdot{width:7px;height:7px;border-radius:50%;background:rgba(122,184,212,.2);cursor:pointer;transition:background .25s}
+.cdot.active{background:var(--muted)}
+.carta-card{
+  background:rgba(10,30,60,.45);
+  border:1px solid rgba(122,184,212,.12);
+  border-left:3px solid rgba(122,184,212,.4);
+  border-radius:0 12px 12px 0;
+  padding:34px 32px 28px;
+  min-height:200px;
+  backdrop-filter:blur(12px);
+}
+.carta-date{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.carta-text{font-family:var(--body);font-size:1.08rem;line-height:1.85;color:var(--text);white-space:pre-wrap}
+.carta-sig{margin-top:20px;font-family:var(--serif);font-style:italic;font-size:.92rem;color:var(--gold);opacity:.65;text-align:right}
+.carta-btns{display:flex;gap:10px;margin-top:18px;justify-content:flex-end}
+.carta-btn{
+  background:transparent;color:var(--muted);border:1px solid rgba(122,184,212,.2);
+  padding:8px 18px;border-radius:50px;font-family:var(--sans);font-size:.78rem;
+  cursor:pointer;transition:all .22s;letter-spacing:.08em;
+}
+.carta-btn:hover{color:var(--gold);border-color:rgba(232,196,106,.35)}
+.carta-btn:disabled{opacity:.25;cursor:default}
+
+/* ── NAV TABS ── */
+.tabs{
+  display:flex;gap:4px;margin-top:140px;width:100%;max-width:520px;
+  background:rgba(10,30,60,.5);border-radius:50px;padding:4px;
+  border:1px solid rgba(122,184,212,.12);
+  backdrop-filter:blur(8px);
+  flex-shrink:0;
+}
+.tab{
+  flex:1;padding:10px 8px;border-radius:50px;border:none;background:transparent;
+  color:rgba(255,255,255,.45);font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s;white-space:nowrap;
+}
+.tab.active{background:rgba(122,184,212,.18);color:#c8e8f4;border:1px solid rgba(122,184,212,.3)}
+
+/* ── TAB BOX ── */
+.tab-box{
+  width:100%;
+  max-width:520px;
+  margin-top:48px;
+  min-height:800px;
+}
+.tab-panel{
+  display:none;
+  width:100%;
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.tab-panel.active{
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ── FRASE FINAL ── */
+.pp-quote{
+  max-width:380px;text-align:center;margin-top:64px;
+  font-family:var(--serif);font-style:italic;font-size:.95rem;
+  color:rgba(255,255,255,.4);line-height:1.8;
+  animation:fadeUp 1s 1s ease both;
+}
+
+/* ── ANIMAÇÕES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  /* hero menor */
+  .hero{padding-top:24px;margin-bottom:32px;padding-bottom:12px}
+  .prince-wrap{width:180px;height:180px;margin-top:24px}
+
+  /* contador compacto */
+  .counter-wrap{margin-top:12px;margin-bottom:20px}
+  .counter-num{font-size:clamp(3.5rem,18vw,5rem)}
+  .counter-label{font-size:1.1rem}
+  .counter-sub{font-size:.7rem}
+  .since{font-size:.62rem}
+
+  /* tabs logo abaixo do contador sem gap gigante */
+  .tabs{
+    margin-top:32px;
+    gap:2px;
+    padding:3px;
+  }
+  .tab{padding:9px 4px;font-size:.65rem;letter-spacing:.03em}
+
+  /* tab-box sem min-height exagerado no mobile */
+  .tab-box{margin-top:16px;min-height:unset}
+
+  /* cards menores */
+  .poem-card{padding:24px 16px 20px}
+  .poem-text{font-size:1rem;line-height:1.75}
+  .carta-card{padding:20px 14px 16px}
+  .carta-text{font-size:.95rem;line-height:1.7}
+
+  /* história */
+  .tl-item { gap: 12px; }
+  .tl-text{font-size:.95rem}
+  .tl-date{font-size:.65rem}
+  .section-title{font-size:1.2rem;margin-bottom:18px}
+
+  /* layout geral */
+  main{padding:0 12px 100px}
+
+  /* botão música não sobrepõe conteúdo */
+  .music-btn{bottom:20px;right:14px;width:42px;height:42px;font-size:1rem}
+  .spotify-drawer{padding:0 10px 10px}
+}
+
+/* ── MÚSICA ── */
+.music-btn{
+  position:fixed;
+  bottom:28px;right:20px;
+  z-index:100;
+  width:48px;height:48px;
+  border-radius:50%;
+  background:rgba(10,30,60,.75);
+  border:1px solid rgba(122,184,212,.35);
+  backdrop-filter:blur(12px);
+  color:#c8e8f4;
+  font-size:1.2rem;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+  transition:all .3s ease;
+  animation:fadeUp .8s 2s ease both;
+}
+.music-btn:hover{
+  background:rgba(122,184,212,.2);
+  border-color:rgba(122,184,212,.7);
+  transform:scale(1.08);
+}
+.music-btn.playing{ border-color:rgba(122,184,212,.8); color:#7ab8d4; }
+.music-btn .note{ transition:transform .3s ease; display:inline-block; }
+.music-btn.playing .note{ animation:noteSpin 3s linear infinite; }
+@keyframes noteSpin{
+  0%,100%{ transform:rotate(-8deg) scale(1); }
+  50%{ transform:rotate(8deg) scale(1.15); }
+}
+
+/* Player Spotify — drawer que sobe do fundo */
+.spotify-drawer{
+  position:fixed;
+  bottom:-200px;
+  left:0;right:0;
+  z-index:99;
+  padding:0 16px 16px;
+  transition:bottom .45s cubic-bezier(.4,0,.2,1);
+}
+.spotify-drawer.open{ bottom:0; }
+.spotify-drawer iframe{
+  border-radius:16px;
+  box-shadow:0 -8px 40px rgba(0,0,0,.5);
+  width:100%;
+  height:80px;
+  display:block;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Contador juntos</h1>
 
-        <div id="fun-counter" class="fun-counter">Calculando...</div>
+<div id="sky"></div>
 
-        <div class="poem">
-            <div class="poem-text" id="poemText">Carregando...</div>
-            <div class="poem-author" id="poemAuthor"></div>
+<main>
+
+<section class="hero">
+
+  <div class="prince-wrap"><svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display:block;overflow:visible">
+  <defs>
+    <radialGradient id="planetGrad" cx="40%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#3a5c8a"/>
+      <stop offset="40%"  stop-color="#1e3a6a"/>
+      <stop offset="100%" stop-color="#0a1535"/>
+    </radialGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#4a7acc" stop-opacity=".4"/>
+      <stop offset="100%" stop-color="#4a7acc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="pglow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="psoftglow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="planetClip">
+      <circle cx="130" cy="155" r="75"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="130" cy="155" r="88" fill="url(#glowGrad)" opacity=".6"/>
+
+  <circle cx="130" cy="155" r="75" fill="url(#planetGrad)"/>
+
+  <g clip-path="url(#planetClip)">
+    <ellipse cx="130" cy="175" rx="70" ry="18" fill="rgba(80,120,60,.35)"/>
+    <ellipse cx="110" cy="162" rx="40" ry="12" fill="rgba(60,100,50,.25)"/>
+    <ellipse cx="160" cy="168" rx="30" ry="10" fill="rgba(90,130,65,.2)"/>
+    <circle cx="100" cy="145" r="7" fill="rgba(0,0,0,.12)"/>
+    <circle cx="155" cy="160" r="4" fill="rgba(0,0,0,.1)"/>
+    <circle cx="118" cy="170" r="5" fill="rgba(0,0,0,.08)"/>
+  </g>
+
+  <circle cx="112" cy="130" r="18" fill="rgba(255,255,255,.07)" filter="url(#pglow)"/>
+  <circle cx="108" cy="126" r="7"  fill="rgba(255,255,255,.1)"/>
+
+  <ellipse cx="130" cy="155" rx="100" ry="16" fill="none" stroke="rgba(200,180,120,.35)" stroke-width="9"/>
+  <ellipse cx="130" cy="155" rx="100" ry="16" fill="none" stroke="rgba(240,200,100,.18)" stroke-width="3"/>
+
+  <path d="M 130 155 m -100 0 a 100 16 0 0 0 200 0" fill="#0a1535" opacity=".95"/>
+  <path d="M 130 155 m -100 0 a 100 16 0 0 0 200 0" fill="none" stroke="rgba(200,180,120,.3)" stroke-width="9"/>
+
+  <path d="M 130 82 Q 132 72 130 65 Q 128 58 130 52" fill="none" stroke="#5a8a45" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 130 70 Q 122 66 119 60 Q 125 60 130 68" fill="#6aaa50" opacity=".9"/>
+  <path d="M 130 62 Q 138 58 141 52 Q 135 53 130 60" fill="#6aaa50" opacity=".85"/>
+  <ellipse cx="130" cy="51" rx="5" ry="7" fill="#4a8035" transform="rotate(-20 130 51)" opacity=".8"/>
+  <ellipse cx="130" cy="51" rx="5" ry="7" fill="#4a8035" transform="rotate(20 130 51)"  opacity=".8"/>
+  <ellipse cx="122" cy="44" rx="8" ry="12" fill="#d45070" transform="rotate(-35 122 44)" opacity=".85"/>
+  <ellipse cx="138" cy="44" rx="8" ry="12" fill="#d45070" transform="rotate(35 138 44)"  opacity=".85"/>
+  <ellipse cx="130" cy="38" rx="7" ry="13" fill="#d45070" opacity=".85"/>
+  <ellipse cx="124" cy="40" rx="7" ry="10" fill="#e8637a" transform="rotate(-20 124 40)" opacity=".9"/>
+  <ellipse cx="136" cy="40" rx="7" ry="10" fill="#e8637a" transform="rotate(20 136 40)"  opacity=".9"/>
+  <ellipse cx="130" cy="36" rx="6" ry="10" fill="#e8637a" opacity=".95"/>
+  <ellipse cx="130" cy="38" rx="5" ry="6"  fill="#f0899a"/>
+  <ellipse cx="130" cy="37" rx="3.5" ry="4" fill="#ffc0cb"/>
+  <circle  cx="130" cy="36" r="2"           fill="#ffe0e8"/>
+
+  <rect x="123" y="92" width="14" height="16" rx="3" fill="#f0c96e" opacity=".95"/>
+  <path d="M 127 92 L 130 96 L 133 92" fill="#e8637a" opacity=".9"/>
+  <circle cx="130" cy="88" r="8" fill="#f5d8a0"/>
+  <ellipse cx="130" cy="81" rx="8" ry="5" fill="#f0c050" opacity=".9"/>
+  <ellipse cx="124" cy="84" rx="4" ry="3" fill="#f0c050" opacity=".8" transform="rotate(-10 124 84)"/>
+  <ellipse cx="136" cy="84" rx="4" ry="3" fill="#f0c050" opacity=".8" transform="rotate(10 136 84)"/>
+  <circle cx="127" cy="88" r="1.6" fill="#2a1008"/>
+  <circle cx="133" cy="88" r="1.6" fill="#2a1008"/>
+  <circle cx="127.7" cy="87.3" r=".65" fill="white" opacity=".85"/>
+  <circle cx="133.7" cy="87.3" r=".65" fill="white" opacity=".85"/>
+  <path d="M 128 91 Q 130 93 132 91" fill="none" stroke="#8a4030" stroke-width="1.1" stroke-linecap="round"/>
+  <rect x="125" y="107" width="4" height="9" rx="2" fill="#4a6aaa"/>
+  <rect x="131" y="107" width="4" height="9" rx="2" fill="#4a6aaa"/>
+  <rect x="124" y="115" width="5.5" height="3" rx="1.5" fill="#2a1808"/>
+  <rect x="130.5" y="115" width="5.5" height="3" rx="1.5" fill="#2a1808"/>
+
+  <g filter="url(#pglow)" opacity=".9">
+    <polygon points="42,60 44,54 46,60 52,62 46,64 44,70 42,64 36,62" fill="#f0c96e" transform="scale(.6) translate(28,42)"/>
+    <polygon points="42,60 44,54 46,60 52,62 46,64 44,70 42,64 36,62" fill="#f0c96e" transform="scale(.4) translate(460,80)"/>
+    <polygon points="42,60 44,54 46,60 52,62 46,64 44,70 42,64 36,62" fill="#fffbe8" transform="scale(.35) translate(100,320)"/>
+    <polygon points="42,60 44,54 46,60 52,62 46,64 44,70 42,64 36,62" fill="#f0c96e" transform="scale(.5) translate(350,20)"/>
+  </g>
+</svg></div>
+
+  <div class="counter-wrap">
+    <div class="counter-num" id="fun-counter">…</div>
+    <div class="counter-label">dias com você</div>
+    <div class="counter-sub" id="counter-sub"></div>
+    <div class="since">desde 18 · 12 · 2025</div>
+  </div>
+
+</section>
+
+<nav class="tabs">
+  <button class="tab active" onclick="showTab('poemas',this)">Poemas</button>
+  <button class="tab" onclick="showTab('historia',this)">Nossa história</button>
+  <button class="tab" onclick="showTab('descartes',this)">Descartes</button>
+</nav>
+
+<div class="tab-box">
+
+<div class="tab-panel active" id="tab-poemas">
+<section class="section">
+  <div class="section-title">✦ Poemas</div>
+  <div class="poem-card">
+    <p class="poem-text" id="poemText">Carregando…</p>
+    <div class="poem-author" id="poemAuthor"></div>
+  </div>
+  <div class="btn-wrap" style="display:flex;justify-content:center">
+    <button class="next-btn" onclick="nextPoem()">
+      <span class="spin">↻</span> próximo poema
+    </button>
+  </div>
+</section>
+</div><div class="tab-panel" id="tab-historia">
+<section class="section">
+  <div class="section-title">♥ Nossa história</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">2023 — Paulo Leminski</div>
+        <div class="tl-text">
+          A gente já existia no mesmo lugar, nos mesmos corredores… 
+          mas ainda não fazia ideia um do outro. 
+          Dois caminhos seguindo em silêncio, até o dia em que finalmente se cruzaram.
         </div>
-
-        <button onclick="nextPoem()">Ler o próximo</button>
-
-        <div class="date">Since 18/12/2025</div>
+      </div>
     </div>
-x
-    <script src="script.js"></script>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">2025 - Na igreja</div>
+        <div class="tl-text">
+          Aos poucos, você foi deixando de ser só alguém por perto. 
+          Vieram as conversas, os momentos simples, as risadas…, os lanches do RED
+          e sem perceber, eu já gostava de estar com você.
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">Setembro · 2025</div>
+        <div class="tl-text">
+          Eu tentava me afastar, fingir que não era nada… 
+          mas não adiantava muito. 
+          Porque, no fundo, eu já sabia:
+          <em>gostava da sua companhia mais do que o normal.</em>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">Novembro · 2025</div>
+        <div class="tl-text">
+          Palavras que ficaram guardadas por muito tempo… foram finalmente ditas.
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">18 de dezembro · 2025</div>
+        <div class="tl-text">
+          <em>O começo.</em> 
+          E entre tantas pessoas no mundo, eu entendi que tinha encontrado a minha.
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">Janeiro · 2026</div>
+        <div class="tl-text">
+          Um sentimento diferente de todos os outros. 
+          Mais calmo, mais profundo… mais verdadeiro. 
+          Algo que eu não mostro pra qualquer pessoa, mas escolhi te dar.
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">Fevereiro · 2026</div>
+        <div class="tl-text">
+          Dois meses. 
+          Pensar no futuro, cuidar do presente… 
+          e perceber que isso aqui tem base pra durar.
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">✦</div>
+      <div class="tl-body">
+        <div class="tl-date">Março · 2026</div>
+        <div class="tl-text">
+          Três meses. 
+          E no meio de tudo, uma certeza simples: 
+          <em>eu escolho você. Todos os dias.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div><div class="tab-panel" id="tab-descartes">
+<section class="section">
+  <div class="section-title">✉ Descartes</div>
+  <p style="font-family:var(--body);font-style:italic;font-size:.95rem;color:var(--muted);margin-bottom:24px;line-height:1.7;opacity:.7">
+    Fragmentos de pensamento, dias guardados — rascunhos que ficaram na gaveta até chegar a hora certa.
+  </p>
+
+  <div class="carta-nav">
+    <span class="carta-nav-title" id="carta-titulo">VI. — 20/09/2025</span>
+    <div class="carta-dots" id="carta-dots"></div>
+  </div>
+
+  <div class="carta-card">
+    <div class="carta-date" id="carta-date"></div>
+    <div class="carta-text" id="carta-text"></div>
+    <div class="carta-sig" id="carta-sig"></div>
+  </div>
+
+  <div class="carta-btns">
+    <button class="carta-btn" id="btn-prev" onclick="prevCarta()" disabled>← anterior</button>
+    <button class="carta-btn" id="btn-next" onclick="nextCarta()">próxima →</button>
+  </div>
+</section>
+</div></div><p class="pp-quote reveal">
+  "Tu te tornas eternamente responsável por aquilo que cativas."
+  <br><span style="font-size:.8em;opacity:.6">— Antoine de Saint-Exupéry</span>
+</p>
+
+<div class="sep" style="margin-top:52px">✦ ✦ ✦</div>
+
+
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Nossa playlist">
+  <span class="note">♪</span>
+</button>
+
+<div class="spotify-drawer" id="spotifyDrawer">
+  <iframe
+    id="spotifyFrame"
+    style="border-radius:16px"
+    src=""
+    width="100%"
+    height="80"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
+</main>
+
+<script>
+// ── DATA ──
+const START = new Date('2025-12-18');
+
+// ── STARS ──
+(function(){
+  const sky = document.getElementById('sky');
+  // Estrelas só na parte escura (abaixo de 30% = onde o céu já escureceu)
+  for(let i=0;i<180;i++){
+    const s=document.createElement('div');s.className='sd';
+    const sz=Math.random()<.08?2.5:Math.random()<.25?1.8:1.1;
+    const d=(2+Math.random()*5).toFixed(1)+'s';
+    const dl=(Math.random()*6).toFixed(1)+'s';
+    // top: 25% a 100% para não aparecer no céu azul claro
+    const topPct = 25 + Math.random()*75;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${topPct}%;--d:${d};--dl:${dl};--mn:${(.08+Math.random()*.2).toFixed(2)};--mx:${(.55+Math.random()*.45).toFixed(2)};animation-delay:${dl}`;
+    sky.appendChild(s);
+  }
+  // Estrela grande dourada (como na ilustração — canto superior direito)
+  const bigStar = document.createElement('div');
+  bigStar.style.cssText='position:absolute;right:12%;top:6%;width:32px;height:32px;z-index:3;animation:tw 3s ease-in-out infinite;--mn:.6;--mx:1;--d:3s;';
+  bigStar.innerHTML=`<svg viewBox="0 0 32 32" width="32" height="32"><path d="M16 2 L18.5 12 L28 16 L18.5 20 L16 30 L13.5 20 L4 16 L13.5 12Z" fill="#f0c050" stroke="#d0a030" stroke-width="1"/></svg>`;
+  sky.appendChild(bigStar);
+
+})();
+
+// ── CONTADOR ──
+(function(){
+  const days=Math.max(0,Math.floor((Date.now()-START)/86400000));
+  const el=document.getElementById('fun-counter');
+  const sub=document.getElementById('counter-sub');
+  const from=Math.max(0,days-18);
+  const t0=performance.now(),dur=1500;
+  (function tick(now){
+    const p=Math.min((now-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(from+(days-from)*e);
+    if(p<1)requestAnimationFrame(tick);else el.textContent=days;
+  })(t0);
+  const m=Math.floor(days/30),w=Math.floor(days/7);
+  const parts=[];
+  if(m>0)parts.push(m+(m===1?' mês':' meses'));
+  if(w>0)parts.push(w+' semanas');
+  if(sub)sub.textContent=parts.join(' · ');
+})();
+
+// ── POEMAS ──
+const RAW = [
+  {text:`Amor é fogo que arde sem se ver,
+é ferida que dói, e não se sente;
+é um contentamento descontente,
+é dor que desatina sem doer.
+
+É um não querer mais que bem querer;
+é um andar solitário entre a gente;
+é nunca contentar-se de contente;
+é um cuidar que ganha em se perder.
+
+É querer estar preso por vontade;
+é servir a quem vence, o vencedor;
+é ter com quem nos mata, lealdade.
+
+Mas como causar pode seu favor
+nos corações humanos amizade,
+se tão contrário a si é o mesmo Amor.`,author:`Luís Vaz de Camões`},
+  {text:`Que eu não admita impedimentos ao casamento de mentes verdadeiras.
+O amor não é amor
+Se se altera quando encontra mudança,
+Ou se curva para se desfazer quando o outro se afasta.
+Oh, não! Ele é um marco eterno,
+Que encara as tempestades e nunca se abala;
+É a estrela para todo barco errante,
+Cujo valor é desconhecido, embora sua altura seja medida.
+O amor não é joguete do Tempo, ainda que lábios rosados e faces
+Caiam sob o alcance de sua foice curva;
+O amor não muda com suas breves horas e semanas,
+Mas resiste até a beira da destruição.
+Se isso for erro e puder ser provado contra mim,
+Eu nunca escrevi, nem homem algum jamais amou.`,author:`William Shakespeare`},
+  {text:`Um dia escrevi seu nome, achando que o tempo poderia apagar.
+Mas percebi que não importa quantas ondas venham — você não é algo que se perde.
+
+Você até disse que tudo é passageiro,
+que um dia até nós dois podemos desaparecer…
+mas eu não consigo acreditar nisso.
+
+Porque o que sinto por você não nasceu pra ser esquecido.
+Não é algo frágil, nem temporário.
+
+Se o tempo apaga nomes,
+então eu escrevo você naquilo que ele não alcança:
+no meu coração, na minha memória… e em tudo que eu crio.
+
+Se um dia tudo acabar,
+ainda assim o nosso amor vai ter existido —
+e isso já é eterno.
+
+E enquanto eu puder,
+vou continuar escrevendo você…
+de formas que o mundo nunca vai conseguir apagar.`,author:`Edmund Spenser`},
+  {text:`Eu fico pensando… o que eu e você éramos antes de nos encontrarmos?
+Será que aquilo que eu chamava de felicidade era mesmo real…
+ou só algo vazio, sem você?
+
+Porque tudo que vivi antes
+parece pequeno agora.
+Como se fosse só um ensaio…
+pra te encontrar.
+
+E hoje, quando olho pra nós,
+é como se tivéssemos finalmente acordado.
+Sem medo, sem dúvida — só a certeza
+de que o nosso amor é o nosso mundo.
+
+Não preciso de outros lugares,
+nem de novas descobertas…
+porque em você, eu já encontrei tudo.
+
+Quando eu te olho, eu me vejo.
+E sei que você também se encontra em mim.
+Como se fôssemos feitos pra isso —
+pra sermos um só, completos.
+
+E se o amor for realmente assim…
+então o nosso não vai acabar.
+Porque ele é inteiro,
+forte,
+e verdadeiro demais pra morrer.
+
+Todos os reis, todas as glórias,
+tudo aquilo que o mundo chama de grande…
+nada se compara ao que eu tenho com você.
+
+O tempo passa, o mundo muda,
+o próprio sol segue seu caminho —
+mas desde o dia em que te encontrei,
+tudo ganhou um novo sentido.
+
+Aqui, no nosso mundo,
+somos mais do que qualquer rei.
+Porque temos algo que ninguém pode governar,
+nem tirar de nós.
+
+E sabe o mais bonito?
+Nada pode nos destruir…
+a não ser nós mesmos.
+
+Então que a gente escolha o amor.
+Sem medo, sem dúvidas,
+com verdade.
+
+Que a gente viva isso intensamente,
+somando anos aos anos,
+momentos aos momentos…
+até que nossa história seja longa,
+forte
+e inesquecível.
+
+Porque isso aqui…
+isso que a gente tem…
+é o nosso reinado.`,author:`John Donne`},
+  {text:`Tudo no mundo parece se encontrar…
+Os rios correm até o mar,
+o vento toca tudo ao seu redor,
+como se nada existisse sozinho.
+
+Existe algo maior em tudo isso,
+como se fosse uma regra do próprio universo:
+as coisas foram feitas pra se unirem.
+
+Então… por que eu não poderia me unir a você?
+
+Olha ao redor —
+as montanhas tocam o céu,
+as ondas se abraçam no mar,
+a luz do sol envolve a terra,
+e a lua beija o oceano.
+
+Tudo se encontra, tudo se completa.
+
+E no meio de tudo isso,
+eu só consigo pensar em uma coisa…
+
+de que vale toda essa beleza,
+se eu não puder estar com você?
+
+Se eu não puder te ter perto,
+te abraçar…
+e, simplesmente, te amar.`,author:`Percy Bysshe Shelley`},
+  {text:`Meu amor por você é como uma rosa,
+daquelas que florescem lindas, vivas…
+como se o mundo inteiro parasse só pra admirar.
+
+É como uma melodia perfeita,
+suave, tranquila…
+que fica na mente e no coração.
+
+Você é linda de um jeito que eu nem sei explicar,
+e o que eu sinto por você…
+é mais profundo do que qualquer palavra.
+
+E eu vou continuar te amando,
+por muito, muito tempo…
+até que tudo acabe —
+até que o impossível aconteça.
+
+Mesmo que os mares sequem,
+mesmo que o tempo passe…
+o meu amor por você continua.
+
+E se um dia a gente precisar se afastar,
+mesmo que por um tempo…
+eu quero que você saiba:
+
+eu volto.
+
+Não importa a distância,
+não importa quanto tempo leve…
+eu sempre volto pra você.`,author:`Robert Burns`},
+  {text:`Às vezes eu queria ser como uma estrela…
+constante, firme, que nunca muda.
+
+Mas não distante, frio, sozinho no céu…
+não assim.
+
+Eu só queria ter essa constância
+aqui, com você.
+
+Poder ficar ao seu lado,
+deitado perto de você,
+sentindo sua respiração calma,
+o subir e descer do seu peito…
+como se o tempo simplesmente parasse.
+
+Ficar nesse momento pra sempre,
+nesse silêncio cheio de paz,
+onde tudo que existe
+é você e eu.
+
+Acordado, mas tranquilo…
+como se o coração não quisesse descansar,
+só pra continuar sentindo você ali.
+
+E se isso pudesse durar pra sempre…
+eu não precisaria de mais nada.
+
+Porque viver assim, com você,
+já é tudo.
+
+E, sinceramente…
+se não for assim,
+nem sei se faz sentido existir.`,author:`John Keats`},
+  {text:`Seus olhos…
+têm algo que eu não sei explicar.
+
+São profundos, intensos…
+como se escondessem um mundo inteiro dentro deles.
+Quando eu olho pra você,
+é como se tudo ao redor desaparecesse.
+
+E, no meio de tudo isso,
+você se tornou o que me guia.
+
+No silêncio, você é paz.
+Nos dias difíceis, você é abrigo.
+Quando tudo parece confuso,
+você é quem me acalma.
+
+Seu amor tem essa força…
+ele ilumina, aquece, sustenta.
+
+E é por isso que eu te amo.
+Em todos os momentos —
+nos bons e nos difíceis,
+nos leves e nos pesados.
+
+Porque você é tudo isso pra mim:
+luz,
+calma,
+refúgio…
+e direção.
+
+E, no meio dessa vida toda,
+é com você que eu quero seguir.`,author:`Castro Alves`},
+  {text:`Boa noite…
+e mesmo dizendo isso, eu não queria ir embora.
+
+Tem algo em você que me prende,
+que me faz querer ficar mais um pouco…
+só mais um momento ao seu lado.
+
+Porque quando estou perto de você,
+tudo fica mais calmo, mais quente, mais vivo.
+
+Eu só queria poder parar o tempo,
+ficar ali, com você,
+sentindo sua presença, seu carinho…
+como se nada mais existisse.
+
+Te abraçar sem pressa,
+te beijar com calma,
+como se aquele instante fosse infinito.
+
+E no meio desse silêncio cheio de sentimento,
+deixar o coração falar mais alto que qualquer palavra.
+
+Porque o que eu sinto por você
+não quer ir embora…
+só quer ficar.
+
+Com você.`,author:`Autor Desconhecido`},
+  {text:`Amar você…
+às vezes parece algo que eu guardo em silêncio.
+
+Como se fosse algo precioso demais
+pra mostrar ao mundo inteiro.
+Algo só nosso.
+
+É sentir tanto…
+mesmo sem dizer tudo.
+
+É te entender sem precisar de palavras,
+perceber seus pensamentos no seu jeito,
+te acompanhar mesmo de longe,
+e ainda assim… estar perto.
+
+É querer te olhar por mais tempo,
+te abraçar mais forte…
+mas, ao mesmo tempo,
+ter um certo cuidado,
+como se você fosse algo raro, especial.
+
+E, mesmo tentando conter,
+o sentimento cresce.
+
+Silencioso…
+profundo…
+inevitável.
+
+E é isso que eu sinto por você.
+
+Um amor tão forte
+que às vezes nem cabe em palavras…
+mas vive aqui,
+inteiro,
+dentro de mim.`,author:`Autor Desconhecido`},
+  {text:`Como eu te amo?
+Eu poderia tentar contar…
+mas não sei se conseguiria.
+
+Eu te amo em tudo.
+
+Naquilo que é grande, profundo, intenso…
+e também nas coisas mais simples do dia a dia.
+
+Eu te amo nos momentos tranquilos,
+no silêncio,
+na rotina…
+naquilo que nem sempre aparece, mas sempre está lá.
+
+Te amo de um jeito que alcança tudo que eu sou,
+em cada parte de mim.
+
+E, sinceramente…
+não importa o momento,
+não importa o lugar —
+
+eu simplesmente te amo.`,author:`Elizabeth Barrett Browning`},
+  {text:`Minh'alma, de sonhar-te, anda perdida.
+Meus olhos andam cegos de te ver.
+Não és sequer razão do meu viver.
+Pois que tu és já toda a minha vida!`,author:`Florbela Espanca`},
+];
+
+const poems = RAW;
+
+let cur=0;
+function showPoem(idx,anim){
+  const tEl=document.getElementById('poemText');
+  const aEl=document.getElementById('poemAuthor');
+  if(!tEl||!aEl)return;
+  const p=poems[idx];
+  if(anim){
+    tEl.style.opacity=aEl.style.opacity='0';
+    setTimeout(()=>{
+      tEl.textContent=p.text;aEl.textContent=p.author;
+      tEl.style.transition=aEl.style.transition='opacity .5s ease';
+      tEl.style.opacity=aEl.style.opacity='1';
+    },300);
+  }else{tEl.textContent=p.text;aEl.textContent=p.author;}
+}
+function nextPoem(){
+  if(poems.length<2)return;
+  let n;do{n=Math.floor(Math.random()*poems.length);}while(n===cur);
+  cur=n;showPoem(cur,true);
+}
+
+// ── CARTAS (DESCARTES) ──
+const cartas=[
+  {
+    titulo:'I. \u2014 02 / 03 / 2026',
+    date:'2 de mar\u00e7o de 2026',
+    text:`Meu amor,
+
+Desde pequeno, eu tentava entender o mundo para tentar me entender \u2014 sempre me senti um pouco diferente das outras crian\u00e7as. Enquanto elas falavam de futebol e carros, eu gostava de document\u00e1rios e perguntas sobre o universo. Eu olhava para o c\u00e9u n\u00e3o s\u00f3 por curiosidade, mas por necessidade. Eu queria ser astr\u00f4nomo e usava as estrelas como rota de fuga.
+
+Eu imaginava outro planeta \u2014 um lugar onde ser diferente n\u00e3o fosse um defeito, onde eu n\u00e3o precisasse me encaixar em expectativas que nunca pareciam feitas para mim.
+
+Quando eu tinha uns oito anos, numa apresenta\u00e7\u00e3o de Natal na M\u00e3o Cooperadora, todas as crian\u00e7as estavam de camisa branca. Eu n\u00e3o tinha lido o bilhete e fui com uma camisa amarela, estampada, chamativa demais. A solu\u00e7\u00e3o foi simples: me colocaram no fundo do palco, no canto, quase atr\u00e1s da cortina, para que ningu\u00e9m me visse.
+
+N\u00e3o era s\u00f3 vergonha \u2014 era como uma confirma\u00e7\u00e3o: "voc\u00ea n\u00e3o combina." E aquele menino de camisa amarela aprendeu ali a tentar ser invis\u00edvel.
+
+Mas acredito que isso foi importante porque me preparou para voc\u00ea.
+
+Porque eu passei a vida inteira procurando por outra pessoa que me entendesse, onde eu pudesse simplesmente ser \u2014 sem precisar diminuir minhas cores. E eu encontrei esse lugar em voc\u00ea.
+
+Na f\u00edsica qu\u00e2ntica, existe o Efeito do Observador \u2014 a aten\u00e7\u00e3o, de alguma forma quase m\u00e1gica, cria a realidade. Humanamente falando, a gente passa a vida sendo apenas uma nuvem de possibilidades confusas at\u00e9 encontrar algu\u00e9m disposto a nos olhar com tanta inten\u00e7\u00e3o e cuidado que nos ajuda a focar no que realmente importa.
+
+Quando eu me comprometo a te amar, me comprometo a ser essa testemunha para voc\u00ea. Sua vida n\u00e3o vai passar despercebida por mim.
+
+E existe ainda o Enla\u00e7amento Qu\u00e2ntico \u2014 quando duas part\u00edculas interagem de verdade, elas deixam de ser duas entidades isoladas e passam a compartilhar a mesma exist\u00eancia. Einstein chamou isso de "a\u00e7\u00e3o fantasmag\u00f3rica". Mas ele n\u00e3o sabia o quanto eu ia te amar.
+
+Se o ser \u00e9 escolha \u2014 se estamos condenados a ser livres, como dizia Sartre \u2014 ent\u00e3o eu uso a minha senten\u00e7a para te escolher todos os dias, e cumpro com o maior prazer da minha vida.
+
+E \u00e9 enla\u00e7ado com voc\u00ea que quero ficar.`,
+    sig:'Com amor, Gabriel \u2014 02/03/2026'
+  },
+  {
+    titulo:'II. \u2014 18 / 02 / 2026',
+    date:'18 de fevereiro de 2026',
+    text:`Dois meses podem parecer pouco para quem olha de fora. Mas, para quem n\u00e3o v\u00ea a hora de come\u00e7ar a construir um futuro, \u00e9 tempo suficiente para entender que o amor n\u00e3o \u00e9 um acidente \u2014 n\u00e3o foi um simples esbarr\u00e3o do destino. Foi uma escolha consciente, uma curadoria silenciosa de vontades que decidiram caminhar na mesma dire\u00e7\u00e3o.
+
+Nesses sessenta dias eu tamb\u00e9m aprendi que o amor se parece muito com um projeto de engenharia \u2014 ele exige c\u00e1lculo, paci\u00eancia e, acima de tudo, uma funda\u00e7\u00e3o s\u00f3lida. Nada que realmente vale a pena se sustenta sem uma base firme.
+
+Quando eu olho para voc\u00ea, eu n\u00e3o vejo apenas o agora. Eu enxergo o que ainda est\u00e1 por vir. Vejo a gente daqui a tr\u00eas anos, os nossos estudos, o esfor\u00e7o di\u00e1rio, o cuidado com a carreira e com a vida espiritual \u2014 tudo caminhando na mesma dire\u00e7\u00e3o. Porque, no fundo, cada passo que damos hoje j\u00e1 faz parte da constru\u00e7\u00e3o de algo maior: o lar que, um dia, ser\u00e1 nosso.
+
+Talvez pare\u00e7a estranho falar de futuro, de casa e at\u00e9 de casamento depois de apenas dois meses.
+
+Mas fazer o qu\u00ea, se te amar tornou tudo isso inevit\u00e1vel?`,
+    sig:'Gabriel \u2014 18/02/2026'
+  },
+  {
+    titulo:'III. \u2014 04 / 02 / 2026',
+    date:'4 de fevereiro de 2026',
+    text:`No grego, existe uma palavra que define a verdade n\u00e3o como um fato est\u00e1tico, mas como um desvelar: Aletheia. \u00c9 o ato de tirar o v\u00e9u, de deixar que a realidade apare\u00e7a como ela realmente \u00e9.
+
+Para mim, te conhecer foi um processo de Aletheia.
+
+Antes de voc\u00ea, o amor era um conceito abstrato \u2014 uma ideia em um livro de filosofia ou um clich\u00ea das m\u00fasicas. Quando voc\u00ea chegou, o v\u00e9u caiu. A verdade do que eu sou capaz de sentir foi revelada, n\u00e3o por esfor\u00e7o meu, mas pela sua simples presen\u00e7a.
+
+E se a verdade tem uma cor, para mim ela se manifesta no Raio Azul. No espectro da luz, o azul \u00e9 uma das frequ\u00eancias mais energ\u00e9ticas e profundas. Ele n\u00e3o \u00e9 o brilho pasageiro de um f\u00f3sforo \u2014 \u00e9 a cor da base da chama, onde o calor \u00e9 mais intenso e constante.
+
+Meu sentimento por voc\u00ea n\u00e3o \u00e9 um flash de luz vermelha, de paix\u00e3o que queima r\u00e1pido e se apaga. \u00c9 esse raio azul: constante, profundo e que ilumina a minha vida de um jeito que eu nunca mais vou conseguir desver.`,
+    sig:'Gabriel \u2014 04/02/2026'
+  },
+  {
+    titulo:'IV. \u2014 22 / 01 / 2026',
+    date:'22 de janeiro de 2026',
+    text:`No meio de tantas pessoas e de tantos sentimentos que experimentamos todos os dias, muita coisa acaba se tornando branca.
+
+O branco \u00e9 a soma de todas as cores, mas, ironicamente, \u00e9 tamb\u00e9m onde a individualidade se perde \u2014 \u00e9 o comum, o esperado, aquilo que todo mundo sente ou diz sentir.
+
+Por isso eu decidi que o que temos n\u00e3o pode ser branco.
+
+Esse Cora\u00e7\u00e3o Azul \u00e9 o s\u00edmbolo do meu cuidado por voc\u00ea. Dentro de tudo o que eu sou, o azul \u00e9 a cor mais profunda na minha vis\u00e3o \u2014 \u00e9 calma, mas tamb\u00e9m \u00e9 dif\u00edcil de alcan\u00e7ar. Ele representa aquilo que eu n\u00e3o mostro ao mundo, o que eu n\u00e3o divido em conversas casuais e o que eu n\u00e3o desperdi\u00e7o com o que \u00e9 pasageiro.
+
+Te entregar esse azul \u00e9 dizer que, entre tantos afetos brancos e gen\u00e9ricos que a vida oferece, eu escolhi cultivar um sentimento que \u00e9 s\u00f3 seu. Ele \u00e9 raro porque \u00e9 exclusivo. \u00c9 azul porque \u00e9 profundo.
+
+E \u00e9 seu porque voc\u00ea foi a \u00fanica capaz de dar cor ao que, em mim, antes era apenas branco.`,
+    sig:'Gabriel \u2014 22/01/2026'
+  },
+  {
+    titulo:'V. \u2014 Capa e \u00faltima p\u00e1gina',
+    date:'Novembro de 2025',
+    text:`Para a Fernanda.
+
+Espero que encontre nestas p\u00e1ginas um pouco da do\u00e7ura que voc\u00ea traz para os meus dias.
+
+\u2014 \u2014 \u2014
+
+Fernanda,
+
+\u00c9 estranho pensar em como tudo foi acontecendo devagar com a gente. \u00c0s vezes imagino todas as vezes em que andamos pelos corredores do Paulo Leminski sem saber que um dia nos conhecer\u00edamos \u2014 de vizinhos a parceiros no lanche da igreja (e nas reprova\u00e7\u00f5es e aprova\u00e7\u00e3o do Detran)\u2026 Aos poucos, sem que eu percebesse, voc\u00ea foi se tornando algu\u00e9m muito importante para mim.
+
+No livro, o Pr\u00edncipe descobre que, mesmo existindo milhares de rosas no mundo, a dele era a \u00fanica que importava, porque existia um la\u00e7o entre eles.
+
+Sinto que foi isso que aconteceu entre n\u00f3s. Em meio a tanta gente, meus olhos foram aprendendo a te enxergar de um jeito diferente: com aten\u00e7\u00e3o, carinho e uma admira\u00e7\u00e3o que s\u00f3 cresce.
+
+Eu n\u00e3o digo isso sempre (e sei que deveria dizer mais), mas voc\u00ea \u00e9 uma das pessoas mais especiais que Deus colocou na minha vida. Sou grato por cada conversa, por cada momento e pelo lugar que voc\u00ea ocupa na minha vida \u2014 um lugar que voc\u00ea conquistou s\u00f3 sendo voc\u00ea.
+
+Se um dia voc\u00ea voltar a esta \u00faltima p\u00e1gina, espero que lembre disso: voc\u00ea cativou algo em mim que eu nem sabia que existia. Mesmo que a vida mude, esse pedacinho seu em mim n\u00e3o solve, porque voc\u00ea me marcou de um jeito eterno.
+
+"Eu agrade\u00e7o a Deus toda a vez que me lembro de voc\u00ea." (Filipenses 1:3)`,
+    sig:'Com carinho, Gabriel ;) \u2014 28/11/2025'
+  },
+  {
+    titulo:'VI. \u2014 20 / 09 / 2025',
+    date:'20 de setembro de 2025',
+    text:`Fernanda,
+
+Isso \u00e9 uma forma de me convencer a n\u00e3o gostar de voc\u00ea, e tenho tentado fazer isso com todas as minhas for\u00e7as, de verdade.
+
+Tento me afastar, tento me convencer de que \u00e9 melhor assim. \u00c0s vezes at\u00e9 penso em come\u00e7ar a ir para a igreja da Iara s\u00f3 para fugir de toda essa confus\u00e3o que voc\u00ea criou dentro de mim.
+
+Toda vez que eu tento me aproximar, o Jos\u00e9 est\u00e1 l\u00e1. Tem aquele dia em que te chamei para jogar videogame e ele simplesmente se autoconvidou. No piquenique em que o Luis ia pedir a Milena em casamento. At\u00e9 nas coisas pequenas \u2014 quando eu oferecia um chiclete e ele logo pegava dois para poder dar um para voc\u00ea.
+
+Ver ele sempre por perto dando carona, andando junto, at\u00e9 guardando o seu celular no bolso dele me corr\u00f3i por dentro. Eu n\u00e3o queria ser s\u00f3 mais um dos caras que j\u00e1 levaram fora seu.
+
+Mas, ao mesmo tempo\u2026 como eu n\u00e3o vou gostar de voc\u00ea?
+
+Como eu ignoro que n\u00f3s dois reprovamos tr\u00eas vezes na autoescola, quase como se fosse uma piada nossa? Como eu me afasto se voc\u00ea me puxa para gravar reels para o RED, mesmo sabendo que eu nem rede social tenho?
+
+Eu tento colocar barreiras, mas a\u00ed a gente vai junto ao mercado, cozinha juntos, voc\u00ea bebe da minha latinha de guaran\u00e1 sem nem pensar duas vezes e ainda deixa eu terminar a comida que voc\u00ea n\u00e3o gostou.
+
+E eu simplesmente n\u00e3o sei lidar com isso.
+
+Voc\u00ea me pergunta: "Voc\u00ea me odeia, n\u00e9, Gabriel?" \u2014 e voc\u00ea nem imagina que, na verdade, eu estou justamente tentando fugir. Me afastando fisicamente porque a sua presen\u00e7a \u00e9 intoxicante.
+
+Porque a verdade \u00e9 que o que eu realmente queria era o contr\u00e1rio disso tudo. Queria poder te ver todos os dias, conversar sem pressa, ir a mercados diferentes s\u00f3 para descobrir coisas novas, experimentar v\u00e1rios sabores de sorvete com voc\u00ea.
+
+Mas a verdade \u00e9 que, por mais que eu tente n\u00e3o gostar de voc\u00ea, eu gosto da sua companhia muito mais do que dos meus pr\u00f3prios medos.
+
+E eu sinceramente n\u00e3o sei o que fazer com isso.`,
+    sig:'Gabriel \u2014 20/09/2025'
+  }
+];
+
+let cartaIdx=0;
+function renderCarta(){
+  const c=cartas[cartaIdx];
+  document.getElementById('carta-titulo').textContent=c.titulo;
+  document.getElementById('carta-date').textContent=c.date;
+  const tEl=document.getElementById('carta-text');
+  const sEl=document.getElementById('carta-sig');
+  tEl.style.opacity=sEl.style.opacity='0';
+  setTimeout(()=>{
+    tEl.textContent=c.text;
+    sEl.textContent=c.sig;
+    tEl.style.transition=sEl.style.transition='opacity .45s ease';
+    tEl.style.opacity=sEl.style.opacity='1';
+  },200);
+  document.getElementById('btn-prev').disabled=cartaIdx===0;
+  document.getElementById('btn-next').disabled=cartaIdx===cartas.length-1;
+  // dots
+  document.querySelectorAll('.cdot').forEach((d,i)=>d.classList.toggle('active',i===cartaIdx));
+}
+function prevCarta(){if(cartaIdx>0){cartaIdx--;renderCarta();}}
+function nextCarta(){if(cartaIdx<cartas.length-1){cartaIdx++;renderCarta();}}
+function gotoCarta(i){cartaIdx=i;renderCarta();}
+
+// criar dots
+(function(){
+  const wrap=document.getElementById('carta-dots');
+  cartas.forEach((_,i)=>{
+    const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');
+    d.onclick=()=>gotoCarta(i);wrap.appendChild(d);
+  });
+})();
+
+// ── TABS ──
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>{
+    p.classList.remove('active');
+  });
+  const el=document.getElementById('tab-'+id);
+  if(el){
+    el.classList.add('active');
+    // força reflow para a transição funcionar
+    void el.offsetWidth;
+  }
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+}
+
+// ── SCROLL REVEAL ──
+
+
+// ── INIT ──
+window.addEventListener('load',()=>{
+  showPoem(0,false);
+  renderCarta();
+});
+
+// ── MÚSICA ──
+const SPOTIFY_SRC = "https://open.spotify.com/embed/playlist/2uUZq59pVdQdh50cGKh8oS?utm_source=generator&autoplay=1&theme=0";
+let musicOpen = false;
+
+function toggleMusic(){
+  const btn    = document.getElementById('musicBtn');
+  const drawer = document.getElementById('spotifyDrawer');
+  const frame  = document.getElementById('spotifyFrame');
+
+  musicOpen = !musicOpen;
+
+  if(musicOpen){
+    // carrega o iframe só na primeira vez
+    if(!frame.src || frame.src === window.location.href){
+      frame.src = SPOTIFY_SRC;
+    }
+    drawer.classList.add('open');
+    btn.classList.add('playing');
+  } else {
+    drawer.classList.remove('open');
+    btn.classList.remove('playing');
+  }
+}
+</script>
 </body>
 </html>
